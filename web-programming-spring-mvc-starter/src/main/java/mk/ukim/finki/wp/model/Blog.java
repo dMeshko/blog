@@ -16,4 +16,18 @@ import java.util.List;
 public class Blog extends BaseEntity{
     @Length(max = 30)
     private String name;
+
+    public Blog() {}
+
+    public Blog(String name){
+        this.name = name;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
 }
