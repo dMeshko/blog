@@ -17,17 +17,29 @@ public class Blog extends BaseEntity{
     @Length(max = 30)
     private String name;
 
+    @Length(max = 300)
+    private String description;
+
     public Blog() {}
 
-    public Blog(String name){
+    public Blog(String name, String description){
         this.name = name;
+        this.description = description;
     }
 
     public String getName(){
         return name;
     }
 
+    public String getDescription(){
+        return description;
+    }
+
     public void setName(String name){
         this.name = name;
+    }
+
+    public void setDescription(String description){
+        this.description = description;
     }
 }

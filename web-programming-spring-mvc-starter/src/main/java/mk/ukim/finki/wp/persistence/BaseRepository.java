@@ -1,6 +1,8 @@
 package mk.ukim.finki.wp.persistence;
 
 import mk.ukim.finki.wp.model.BaseEntity;
+import mk.ukim.finki.wp.model.Category;
+import mk.ukim.finki.wp.model.Post;
 import mk.ukim.finki.wp.persistence.helper.PredicateBuilder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +32,8 @@ public class BaseRepository {
      * @return
      */
     public <T extends BaseEntity> T getById(Class<T> type, Long id) {
+        if (id == 0) return null; //top root, good for comments, indicates it has no parents!
+
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(type);
         final Root<T> root = cq.from(type);

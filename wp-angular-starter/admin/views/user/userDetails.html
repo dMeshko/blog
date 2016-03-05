@@ -1,0 +1,18 @@
+<div class = "container">
+    <div class = "row">
+        <div class = "col-md-4">
+            <img ng-src = "{{serverURL + user.imageURL}}" class = "img img-responsive thumbnail" />
+            <span class = "label label-primary inline-block">ID {{user.id}}</span>
+            <span class = "inline-block" data-ng-class = "{'label label-success': user.isAdmin == true, 'label label-danger': user.isAdmin == false}">
+                <i data-ng-class = "{'fa fa-unlock': user.isAdmin == true, 'fa fa-lock': user.isAdmin == false}"></i> {{user.isAdmin ? 'Admin' : 'Pleb'}}
+            </span>
+
+
+
+            <div ui-view = "userDetails"></div>
+        </div>
+        <div class = "col-md-8">
+
+        </div>
+    </div>
+</div>

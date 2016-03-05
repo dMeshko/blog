@@ -1,19 +1,13 @@
 package mk.ukim.finki.wp.persistence.impl;
 
-import mk.ukim.finki.wp.model.Blog;
-import mk.ukim.finki.wp.model.Category;
-import mk.ukim.finki.wp.model.Comment;
-import mk.ukim.finki.wp.model.Post;
+import mk.ukim.finki.wp.model.*;
 import mk.ukim.finki.wp.persistence.BaseRepository;
 import mk.ukim.finki.wp.persistence.IBlogRepository;
 import mk.ukim.finki.wp.persistence.helper.PredicateBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.List;
 
 /**
@@ -42,12 +36,7 @@ public class BlogRepository implements IBlogRepository {
 
     @Override
     public List<Post> getPostsByCategory(final Long categoryId) {
-        return baseRepository.find(Post.class, new PredicateBuilder<Post>() {
-            @Override
-            public Predicate toPredicate(CriteriaBuilder cb, CriteriaQuery<Post> cq, Root<Post> root) {
-                return cb.equal(root.get("category"), categoryId);
-            }
-        });
+        return null;
     }
 
     @Override
@@ -71,6 +60,50 @@ public class BlogRepository implements IBlogRepository {
     }
 
     @Override
+    public List<Tag> getTagsByBlog(final Long blogId) {
+        return baseRepository.find(Tag.class, new PredicateBuilder<Tag>() {
+            @Override
+            public Predicate toPredicate(CriteriaBuilder cb, CriteriaQuery<Tag> cq, Root<Tag> root) {
+                return cb.equal(root.get("post"), blogId);
+            }
+        });
+    }
+
+    @Override
+    public Tag getTagByName(final String name) {
+        List<Tag> t =  baseRepository.find(Tag.class, new PredicateBuilder<Tag>() {
+            @Override
+            public Predicate toPredicate(CriteriaBuilder cb, CriteriaQuery<Tag> cq, Root<Tag> root) {
+                return cb.equal(root.get("name"), name);
+            }
+        });
+        if (t.size() != 0)
+            return t.get(0);
+
+        return null;
+    }
+
+    @Override
+    public Category getCategory(Long categoryId) {
+        return baseRepository.getById(Category.class, categoryId);
+    }
+
+    @Override
+    public void addTag(Tag tag) {
+        baseRepository.saveOrUpdate(tag);
+    }
+
+    @Override
+    public void addComment(Comment comment) {
+        baseRepository.saveOrUpdate(comment);
+    }
+
+    @Override
+    public Comment getCommentById(Long commentId) {
+        return baseRepository.getById(Comment.class, commentId);
+    }
+
+    @Override
     public List<Comment> getCommentsByPost(final Long postId) {
         return baseRepository.find(Comment.class, new PredicateBuilder<Comment>() {
             @Override
@@ -88,6 +121,16 @@ public class BlogRepository implements IBlogRepository {
                 return cb.equal(root.get("blog"), blogId);
             }
         });
+    }
+
+    @Override
+    public List<Post> getAllPosts() {
+        return baseRepository.find(Post.class, null);
+    }
+
+    @Override
+    public Blog getBlog(Long blogId) {
+        return baseRepository.getById(Blog.class, blogId);
     }
 
     @Override
