@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="assets/img/favicon.ico"> 
+        <script src="jquery-1.12.0.min.js"></script>
+		<link href='https://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/hover-min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="assets/css/styleBack.css">
+		<script>
+		function FillBilling(f) {
+		  if(f.billingtoo.checked == true) {
+			f.billingname.value = f.shippingname.value;
+			f.billingcity.value = f.shippingcity.value;
+		  }
+		}
+        </script>
+		<title>Work &amp; Travel blog</title>
+		
+
+	</head>
+	<body>
+    	
+        <div class="container">
+        <div class="content">
+      
+                <nav id="navbar" class="navbar navbar-default navbar-fixed-bottom">
+        			<ul style="margin-left:33%;font-size:16px;" class="nav navbar-nav">
+                      <li><a href="postAdmin.html">Post</a></li>
+                      <li><a href="categoryAdmin.html">Categories</a></li>
+                      <li><a href="commentsAdmin.html">Comments</a></li> 
+                      <li class="active"><a href="tagsAdmin.html">Tags</a></li>
+                      <li><a href="loginAdmin.html">Log in</a></li>
+                      <li><a href="registerAdmin.html">Registar</a></li>
+                       
+                    </ul>
+                </nav>
+                 <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+        			<ul style="margin-left:87%;font-size:14px;" class="nav navbar-nav">
+                      
+                      <li><a href="#">Дарко Мешковски</a></li>
+                       
+                    </ul>
+                </nav>
+                
+                <div class="row">
+                <div style="margin-left:7.5%; padding:90px 20px 20px 20px" class="col-md-10">
+                	<h3>Tags:</h3>
+                    <hr/>
+                                            <form>
+                                            <h4>Tags:</h4>
+                                            <input type="text" class="form-control" name="shippingname" style="width:40%;margin-top:-3.29%;margin-left:13%">
+                                            <br>
+                                            <h2><small>Done? </small><span> <input type="checkbox" 	 name="billingtoo" onclick="FillBilling(this.form)"> </span></h2>
+                                           
+                                            
+                                            
+                                            <input class="form-control" style="width:80%;margin-left:13%;margin-top:-3.29%" type="text" name="billingname">
+                                            <br>
+                                            </form>
+                                            
+                                            
+                                            
+                <hr/>
+                
+                							
+                </div>
+                
+                </div>
+                
+        </div>
+        </div>
+    
+    </body>
+	</html>

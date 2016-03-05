@@ -152,7 +152,7 @@ section {
 }
 
 #signup h2 strong {
-	border-bottom: solid 2px #dd5638;
+	border-bottom: solid 2px #79b044;
 }
 
 #signup .btn {
@@ -479,7 +479,8 @@ button[type="submit"]:hover {
 .darko-img,
 .kiki-img,
 .nikola-img,
-.jona-img {
+.jona-img,
+.aleksandra-img {
 	width: 150px;
 	height: auto;
 	border-radius: 50%;

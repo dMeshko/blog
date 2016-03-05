@@ -27,4 +27,6 @@ public interface IBlogRepository {
     public void addTag(Tag tag);
     public void addComment(Comment comment);
     public Comment getCommentById(Long commentId);
+    public List<Post> getPostsByTag(Long tagId);
+    public List<Post> search(String word);
 }

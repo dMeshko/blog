@@ -4,4 +4,10 @@
 
 angular.module("BlogModule", ["angularUtils.directives.dirPagination"]).
     constant("serverURL", "http://localhost:8080/servlet-showcase").
-    constant("apiURL", "http://localhost:8080/servlet-showcase/api/blog");
+    constant("apiURL", "http://localhost:8080/servlet-showcase/api/blog").
+
+    filter('to_trusted', ['$sce', function($sce) {
+    return function(text) {
+        return $sce.trustAsHtml(text);
+    };
+}]);

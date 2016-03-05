@@ -21,7 +21,7 @@ import java.util.List;
 public class BaseRepository {
 
     @PersistenceContext
-    private EntityManager em;
+    public EntityManager em;
 
     /**
      * SELECT t.* FROM @Table({type}) as t WHERE t.id={id}
@@ -45,6 +45,33 @@ public class BaseRepository {
         TypedQuery<T> query = em.createQuery(cq);
 
         return query.getSingleResult();
+    }
+
+    public List<Post> getPostsByCat(Long categoryId){
+        //TypedQuery<Post> q2 =
+                //em.createQuery("SELECT p FROM Post p WHERE p.categoryId IN (SELECT c.id FROM Category c WHERE c.id=" + categoryId + ")", Post.class);
+//SELECT * FROM post as p JOIN post_categories as c on p.id = c.id WHERE c.cat_id = 3
+        //select a.firstName, a.lastName from Book b join b.authors a where b.id = :id
+        TypedQuery<Post> q = em.createQuery("SELECT p FROM Post p JOIN p.categories c WHERE c.id = " + categoryId + ")", Post.class);
+        return q.getResultList();
+    }
+
+    public List<Post> getPostsByTag(Long tagId){
+        //TypedQuery<Post> q2 =
+        //em.createQuery("SELECT p FROM Post p WHERE p.categoryId IN (SELECT c.id FROM Category c WHERE c.id=" + categoryId + ")", Post.class);
+//SELECT * FROM post as p JOIN post_categories as c on p.id = c.id WHERE c.cat_id = 3
+        //select a.firstName, a.lastName from Book b join b.authors a where b.id = :id
+        TypedQuery<Post> q = em.createQuery("SELECT p FROM Post p JOIN p.tags c WHERE c.id = " + tagId + ")", Post.class);
+        return q.getResultList();
+    }
+
+    public List<Post> search(String word){
+        //TypedQuery<Post> q2 =
+        //em.createQuery("SELECT p FROM Post p WHERE p.categoryId IN (SELECT c.id FROM Category c WHERE c.id=" + categoryId + ")", Post.class);
+//SELECT * FROM post as p JOIN post_categories as c on p.id = c.id WHERE c.cat_id = 3
+        //select a.firstName, a.lastName from Book b join b.authors a where b.id = :id
+        TypedQuery<Post> q = em.createQuery("SELECT p FROM Post p WHERE p.title LIKE '%" + word + "%' OR p.content LIKE '%" + word + "%')", Post.class);
+        return q.getResultList();
     }
 
     public <T> List<T> find(Class<T> type, PredicateBuilder<T> predicateBuilder) {

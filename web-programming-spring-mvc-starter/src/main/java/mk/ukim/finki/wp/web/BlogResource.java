@@ -2,11 +2,13 @@ package mk.ukim.finki.wp.web;
 
 import mk.ukim.finki.wp.model.*;
 import mk.ukim.finki.wp.service.IBlogService;
+import mk.ukim.finki.wp.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +24,9 @@ public class BlogResource {
     @Autowired
     IBlogService blogService;
 
+    @Autowired
+    IUserService userService;
+
     @RequestMapping(value = "/{blogId}", method = RequestMethod.GET)
     public Blog getBlog(@PathVariable Long blogId){
         return blogService.getBlog(blogId);
@@ -35,6 +40,11 @@ public class BlogResource {
     @RequestMapping(value = "/tag/byName/{tagName}", method = RequestMethod.GET)
     public Tag getTagByName(@PathVariable String tagName){
         return blogService.getTagByName(tagName);
+    }
+
+    @RequestMapping(value = "/post/byTag/{tagId}")
+    public List<Post> getPostsByTag(@PathVariable Long tagId){
+        return blogService.getPostsByTag(tagId);
     }
 
     @RequestMapping(value = "/category/byBlog/{blogId}", method = RequestMethod.GET)
@@ -85,6 +95,17 @@ public class BlogResource {
         Post post = blogService.getPost(postId);
         Comment comment = blogService.getCommentById(parentCommentId);
         blogService.addComment(author, content, email, website, post, comment);
+    }
+
+    @RequestMapping(value = "/post/search", method = RequestMethod.GET)
+    public List<Post> search(@RequestParam String word){
+        return blogService.search(word);
+    }
+
+    @RequestMapping(value = "/post/add", method = RequestMethod.POST)
+    public void createPost(@RequestParam String title, @RequestParam String content, @RequestParam String imageURL, @RequestParam Long userId){
+        User user = userService.getUser(userId);
+        blogService.addPost(title, content, imageURL, user);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)

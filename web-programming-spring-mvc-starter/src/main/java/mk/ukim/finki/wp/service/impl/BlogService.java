@@ -126,4 +126,20 @@ public class BlogService implements IBlogService {
     public List<Post> getPostsByCategory(Long categoryId) {
         return blogRepository.getPostsByCategory(categoryId);
     }
+
+    @Override
+    public List<Post> getPostsByTag(Long tagId) {
+        return blogRepository.getPostsByTag(tagId);
+    }
+
+    @Override
+    public List<Post> search(String word) {
+        return blogRepository.search(word);
+    }
+
+    @Override
+    public void addPost(String title, String content, String imageURL, User user) {
+        Post p = new Post(title, content, imageURL, user);
+        blogRepository.saveOrUpdatePost(p);
+    }
 }

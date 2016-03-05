@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html"; charset="UTF-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="assets/img/favicon.ico"> 
+		<link href='https://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/hover-min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="assets/css/styleBack.css">
+		
+		<title>Work &amp; Travel blog</title>
+		
+
+	</head>
+	<body>
+    	
+        <div class="container">
+        <div class="content">
+      
+                <nav id="navbar" class="navbar navbar-default navbar-fixed-bottom">
+        			<ul style="margin-left:33%;font-size:16px;" class="nav navbar-nav">
+                      <li class="active"><a href="#">Post</a></li>
+                      <li><a href="categoryAdmin.html">Categories</a></li>
+                      <li><a href="commentsAdmin.html">Comments</a></li> 
+                      <li><a href="tagsAdmin.html">Tags</a></li>
+                      <li><a href="loginAdmin.html">Log in</a></li>
+                      <li><a href="registerAdmin.html">Registar</a></li>
+                       
+                    </ul>
+                </nav>
+                 <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+        			<ul style="margin-left:87%;font-size:14px;" class="nav navbar-nav">
+                      
+                      <li><a href="#">Дарко Мешковски</a></li>
+                       
+                    </ul>
+                </nav>
+                
+                <div class="row">
+                
+                <div style="margin-left:7.5%; padding:90px 20px 20px 20px" class="col-md-10">
+                
+                <h3>Post Content</h3>
+                <hr/>
+                <div style="padding:5px 0 5px 0 ">
+                <button  id="bold" class="btn btn-lg btn-default"><i class="glyphicon glyphicon-bold"></i></button>
+                <button  id="ital" style="margin-left:2%" class="btn btn-lg btn-default"><i class="glyphicon glyphicon-italic"></i></button>
+                <button id="unde" style="margin-left:2%" class="btn btn-lg btn-default"><i class="glyphicon glyphicon-text-color"></i></button>
+                <button id="toleft" style="margin-left:2%" class="btn btn-lg btn-default"><i class="glyphicon glyphicon-align-left"></i></button>
+                <button id="center" style="margin-left:2%" class="btn btn-lg btn-default"><i class="glyphicon glyphicon-align-center"></i></button>
+                <button id="toright" style="margin-left:2%" class="btn btn-lg btn-default"><i class="glyphicon glyphicon-align-right"></i></button>
+                <button style="margin-left:2%" class="btn btn-lg btn-default"><i class="glyphicon glyphicon-picture"></i></button>
+                </div>
+                <hr/>
+                
+               	<h4>Name:</h4>
+                <input class="form-control" style="width:40%;margin-top:-3.29%;margin-left:13%" type="text" id="sm">
+                <br/>
+                 <form role="form">
+                    <div class="form-group">
+                    <h4>Content:</h4>
+                    <textarea type='text' id='vlez' style="width:80%;margin-left:13%;margin-top:-3.29%;height:120px;;"></textarea>
+                    </div>
+ 				 </form>
+                
+                <br/>
+                  <h4>Image:</h4>
+                    <div id="dialog">
+                        
+                        <h4 style="margin-left:12%; margin-top:-5%" id="chose">Chose photo</h4>	
+                        <h4 style="margin-left:12%;"id="upload">Upload photo</h4>
+                         <button style="margin-left:27%; margin-top:-9%" class="btn btn-primary" id="pic">add pic</button>
+                   
+                        
+                        <div id="c">
+                                <input type="file" multiple/>
+                        </div>
+                        <div id="u">
+                            <button id="upl">upload</button>
+                        </div>
+                    </div>
+                  
+                  
+                <br/>
+                
+                <button style="width:20%;margin-left:73%;" class="btn btn-lg btn-primary">Post</button>
+                
+                <hr/>
+                </div>
+                
+                </div>
+                
+       
+                
+        </div>
+        </div>
+    
+    
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	function setSelectionRange(input, selectionStart, selectionEnd) {
+	  if (input.setSelectionRange) {
+		input.focus();
+		input.setSelectionRange(selectionStart, selectionEnd);
+	  } else if (input.createTextRange) {
+		var range = input.createTextRange();
+		range.collapse(true);
+		range.moveEnd('character', selectionEnd);
+		range.moveStart('character', selectionStart);
+		range.select();
+	  }
+	}
+	
+		function getSelectionText() {
+		var text = "";
+		if (window.getSelection) {
+			text = window.getSelection().toString();
+		} else if (document.selection && document.selection.type != "Control") {
+			text = document.selection.createRange().text;
+		}
+		return text;
+	}
+	
+	
+	function getSelected()
+	{
+	  var u     = $('#vlez').val();
+	  var start = $('#vlez').get(0).selectionStart;
+	  var end   = $('#vlez').get(0).selectionEnd;
+
+	  return [u.substring(0, start), u.substring(end), u.substring(start, end)];
+	}
+
+	function setCaretToPos(input, pos) {
+	  setSelectionRange(input, pos, pos);
+	}
+	var isBold  = false;
+	var isUnderlined = false;
+	var isItalic = false;
+		$(document).ready(function(){
+			$("#bold").click(function(){
+			
+				if(isBold == false){
+					
+					var dolzina = $("#vlez").val().length;
+					var x = $("#vlez").val();
+					$("#vlez").val(x+"<b></b>");
+				
+					setCaretToPos($("#vlez")[0], dolzina+3);
+					isBold=true;
+				}	
+				else{
+					var dolzina = $("#vlez").val().length;
+					setCaretToPos($("#vlez")[0], dolzina);
+					isBold=false;
+				}
+				
+				
+			});
+			$("#ital").click(function(){
+			
+				if(isItalic == false){
+					
+					var dolzina = $("#vlez").val().length;
+					var x = $("#vlez").val();
+					$("#vlez").val(x+"<i></i>");
+				
+					setCaretToPos($("#vlez")[0], dolzina+3);
+					isItalic=true;
+				}	
+				else{
+					var dolzina = $("#vlez").val().length;
+					setCaretToPos($("#vlez")[0], dolzina);
+					isItalic=false;
+				}
+				
+				
+			});
+			$("#unde").click(function(){
+			
+				if(isUnderlined == false){
+					
+					var dolzina = $("#vlez").val().length;
+					var x = $("#vlez").val();
+					$("#vlez").val(x+"<b></b>");
+				
+					setCaretToPos($("#vlez")[0], dolzina+3);
+					isUnderlined=true;
+				}	
+				else{
+					var dolzina = $("#vlez").val().length;
+					setCaretToPos($("#vlez")[0], dolzina);
+					isUnderlined=false;
+				}
+				
+				
+			});
+			
+			$("#toleft").click(function(){
+				var select = getSelected();
+				console.log(select);
+				$('#vlez').val(select[0] + '<p style="text-align: left">'+ select[2] + '</p>' + select[1]);	
+			
+			});
+			
+			$("#toright").click(function(){
+				var select = getSelected();
+				console.log(select);
+				$('#vlez').val(select[0] + '<p style="text-align: right">'+ select[2] + '</p>' + select[1]);	
+			
+			});
+			$("#center").click(function(){
+				var select = getSelected();
+				console.log(select);
+				$('#vlez').val(select[0] + '<p style="text-align: center">'+ select[2] + '</p>' + select[1]);	
+			
+			});
+			
+			$("#c").hide();
+			$("#u").hide();
+			
+			$("#upload").click(function(){
+				$("#c").hide();
+				$("#u").show();
+			});
+			
+			$("#chose").click(function(){
+				$("#c").show();
+				$("#u").hide();
+			});
+		});
+	</script>
+    </body>
+    
+	</html>

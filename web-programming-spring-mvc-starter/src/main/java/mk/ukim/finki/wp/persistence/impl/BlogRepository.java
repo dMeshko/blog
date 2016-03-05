@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class BlogRepository implements IBlogRepository {
 
     @Override
     public List<Post> getPostsByCategory(final Long categoryId) {
-        return null;
+        return baseRepository.getPostsByCat(categoryId);
     }
 
     @Override
@@ -101,6 +102,16 @@ public class BlogRepository implements IBlogRepository {
     @Override
     public Comment getCommentById(Long commentId) {
         return baseRepository.getById(Comment.class, commentId);
+    }
+
+    @Override
+    public List<Post> getPostsByTag(Long tagId) {
+        return baseRepository.getPostsByTag(tagId);
+    }
+
+    @Override
+    public List<Post> search(String word) {
+        return baseRepository.search(word);
     }
 
     @Override

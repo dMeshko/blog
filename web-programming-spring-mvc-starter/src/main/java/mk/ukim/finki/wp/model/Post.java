@@ -68,6 +68,17 @@ public class Post extends BaseEntity{
         date = simpleDateFormat.format(new Date()).toString();
     }
 
+    public Post(String title, String content, String imageURL, User user){
+        this.title = title;
+        this.content = content;
+        imageURLs = new ArrayList<String>();
+        imageURLs.add(imageURL);
+        this.author = user;
+        rating = 0;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        date = simpleDateFormat.format(new Date()).toString();
+    }
+
     public String getTitle() {
         return title;
     }

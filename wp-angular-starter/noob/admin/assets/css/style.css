@@ -1,0 +1,759 @@
+/* COLOR REFERENCES
+
+Green: #79b044
+Salmon: #dd5638
+Blue Gray: #3e4249
+
+*/
+
+/* =============================/
+/========== GENERAL =========== */
+
+body  {
+  	padding-top: 50px;
+  	font-family: 'Dosis', sans-serif;
+	font-size: 16px;
+	background: url(../img/tile.jpg) top left repeat;
+}
+
+/* =============================/
+/========== GLOBAL =========== */
+
+h1, h2, h3, h4, h5, h6 {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h1, h2 {
+	margin-bottom: 40px;
+}
+
+h3 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+p {
+	margin: 0 0 15px;
+}
+
+hr {
+	border-color: black !important;
+}
+
+a:link, a:visited {
+	color: #dd5638;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #c9302c;
+}
+
+button, input, .btn, a.btn {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	color: white;
+}
+
+.btn {
+	font-weight: bold;
+}
+
+.btn:focus {
+	outline: none !important;
+}
+
+.btn-danger {
+	background-color: #dd5638;
+	border-collapse: #d95131; 
+}
+
+.btn-success {
+	background: #79b044;
+	border: none;
+}
+
+.btn-success:hover {
+	background: #6a9b3d;
+	border-color: #6a9b3d;
+}
+
+img {
+	max-width: 100%;
+}
+
+p {
+	font-size: 18px;
+}
+
+
+/* =============================/
+/========== LAYOUT =========== */
+
+.row + .row {
+	margin-top: 20px;
+}
+
+section {
+	padding: 80px 0;
+}
+
+#primary {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.feature-image {
+	display: table;
+	width: 100%;
+}
+
+.feature-image-default {
+	background: url('../img/stuff-feature.jpg') no-repeat;
+	background-size: cover;
+}
+
+.feature-image-default-alt {
+	background: url('../img/hipster-stuff.jpg') no-repeat;
+	background-size: cover;
+}
+
+.feature-image h1 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+}
+
+#signup {
+	text-align: center;
+	background: url(../img/hipster-stuff.jpg) ;
+	background-size: cover;
+	color: white;
+	padding: 8% 0;
+}
+
+#signup h2 {
+	font-weight: normal;
+}
+
+#signup h2 strong {
+	border-bottom: solid 2px #dd5638;
+}
+
+#signup .btn {
+	font-size: 24px;
+}
+
+
+/* =============================/
+/========== BLOG PAGE =========== */
+
+.post, .widget, #comments {
+	position: relative;
+	border: solid 1px #ddd;
+	background: white;
+	margin: 0 0 40px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.post header,
+.post .post-excerpt,
+.post .post-body,
+#comments .comments-wrap {
+	padding: 20px;
+}
+
+.post header h3,
+.post header h1 {
+	margin: 0 0 15px;
+	padding: 0 0 15px;
+	border-bottom: solid 1px #ddd;
+}
+
+.post-header h1 {
+	font-size: 24px; 
+}
+
+.post-image {
+	height: auto;
+}
+
+.post-details {
+	font-size: 15px;
+	width: 90%;
+}
+
+.post-details i.fa {
+	padding-left: 10px;
+	padding-right: 3px;
+}
+
+.post-details i.fa:first-child {
+	padding-left: 0;
+	padding-right: 3px;
+}
+
+
+/* =============================/
+/========== ASIDE WIDGETS =========== */
+
+.widget {
+	padding: 20px;
+}
+
+.widget h4 {
+	margin: 0 0 10px;
+	padding: 0 0 10px;
+	border-bottom: solid 1px #ddd;
+}
+
+.widget ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.widget ul li {
+	margin: 0 0 5px;
+}
+
+.widget ul li:hover {
+	position: relative;
+	left: 1px;
+}
+
+
+/* ======================================/
+/========== COMMENTS LAYOUT =========== */
+
+.post-comments-badge {
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	top: 25px;
+	right: 20px;
+	border: none;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	background: #79b044;
+	text-align: center;
+	display: table;
+}
+
+.post-comments-badge a {
+	display: table-cell;
+	vertical-align: middle;
+	color: white;
+	font-size: 20px;
+	line-height: 20px;
+	
+}
+
+.post-comments-badge i.fa {
+	display: block;
+	font-size: 15px;
+	padding: 0;
+	margin-bottom: 4px;
+}
+
+.post-comments-badge:hover {
+	background-color: #8bc653;
+}
+
+#comments h3 {
+	text-align: center;
+}
+
+#comments h4 {
+	font-size: 1.3em; 
+}
+
+#comments ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#comments ol li {
+	background: rgba(0,0,0,0.02 );
+	padding: 10px 20px;
+	margin: 10px 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: solid 1px rgba(0,0,0,0,0.03);
+	
+}
+
+#comments ol li ol.children {
+	padding: 0;
+	list-style: none;
+	font-size: 0.96em;
+}
+
+#leave-comment {
+	margin: 40px 0 0;
+	padding: 20px 0 0;
+	border-top: solid 1px #eee;
+}
+
+
+
+/* ===================================/
+/========== COMMENTS FORM ============*/
+label {
+	display: block;
+	font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 6px 12px;
+	
+}
+
+input[type="submit"],
+button[type="submit"] {
+	display: inline-block;
+	margin-bottom: 0;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1.33;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: none;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+	outline: none;
+	border: none;
+	background: #aaa;
+}
+
+/* ===================================/
+/========== LOGIN & REGISTER FORM ============*/
+.panel-login {
+	border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	margin-top: 50px;
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 17px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #79b044;
+	font-size: 20px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+.btn-login {
+	background-color: #59B2E0;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #79b044;
+}
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #53A3CD;
+	border-color: #53A3CD;
+}
+.forgot-password {
+	text-decoration: none;
+	color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	text-decoration: none;
+	color: #666;
+}
+
+.btn-register {
+	background-color: #79b044;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
+}
+
+/* ====================================/
+/========== ABOUT US ================ */
+.filip-img,
+.darko-img,
+.kiki-img,
+.nikola-img,
+.jona-img {
+	width: 150px;
+	height: auto;
+	border-radius: 50%;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	opacity: 1;
+}
+
+.filip-img:hover,
+.darko-img:hover,
+.kiki-img:hover,
+.nikola-img:hover,
+.jona-img:hover {
+	
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	transform: scale(0.95);	
+}
+
+#team .row {
+	margin-top: 50px;
+	
+}
+
+#team .p-team {
+	font-size: 25px;
+	margin-top: 20px;
+}
+
+#team hr {
+	margin-top: 0;
+}
+
+#team .p-positions {
+	margin-top: -17px;
+	font-style: italic;
+}
+
+#team .badge.social {
+	background: #79b044;
+	font-size: 25px;
+	height: 46px;
+	width: 46px;
+    padding: 10px;
+    text-align: center;
+	border-radius: 100px;
+	color: #ffffff;
+	-webkit-transition: background 0.35s;
+	transition: background 0.35s;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+	margin-bottom: 60px;
+}
+
+#team .badge.social:hover {
+	background: black;
+}
+
+#team h2 {
+    text-align: center;
+}
+
+
+/* ====================================/
+/========== HOME PAGE =============== */
+
+ .fuckingbackground {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.70)), url(../img/hipster-stuff.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.hero-text-box {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+    position: absolute;
+    width: 1540px;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-68%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	color: white;
+	font-size: 30px;
+}
+
+
+.btn.btn-full,
+.btn.btn-ghost {
+	font-size: 25px !important;
+}
+
+
+.btn:link,
+.btn:visited,
+input[type=submit]  {
+    display: inline-block;
+    padding: 20px 80px;
+    font-weight: 100;
+    text-decoration: none;
+    border-radius: 10px;
+    -webkit-transition: background-color 0.7s, border 0.7s, color 0.7s;
+    transition: background-color 0.7s, border 0.7s, color 0.7s;
+    
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+    background-color: #79b044;
+    border: 1px solid #79b044;
+    color: #fff;
+    margin-right: 15px;
+    
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #79b044;
+    color: #79b044
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:hover {
+    background-color: #548921;
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type=submit]
+                    {
+    border: 1px solid #79b044;
+    
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #548921;
+    color: #fff;
+}
+
+
+
+/* ===========================================/
+/========== ANIMATIONS ON SCROLL =========== */
+
+#animatedCategory {
+  
+    animation-delay: 0.5s;   
+}
+
+.js--wp-1 {
+	opacity: 0;
+}
+
+.js--wp-1 .animated {
+	opacity: 1;
+}
+
+.js--wp-2 {
+	opacity: 0;
+}
+
+.js--wp-2 .animated {
+	opacity: 1;
+}
+
+.js--wp-11 {
+	opacity: 0;
+}
+
+.js--wp-11 .animated {
+	opacity: 1;
+}
+
+.js--wp-12 {
+	opacity: 0;
+	animation-delay: 0.2s;	
+}
+
+.js--wp-12 .animated {
+	opacity: 1;
+}
+
+.js--wp-13 {
+	opacity: 0;
+	animation-delay: 0.4s;	
+}
+
+.js--wp-13 .animated {
+	opacity: 1;
+}
+
+.js--wp-14 {
+	opacity: 0;
+	animation-delay: 0.6s;	
+}
+
+.js--wp-14 .animated {
+	opacity: 1;
+}
+
+.js--wp-15 {
+	opacity: 0;
+	animation-delay: 0.8s;	
+}
+
+.js--wp-15 .animated {
+	opacity: 1;
+}
+
+.js--wp-16 {
+	opacity: 0;
+	animation-delay: 1s;	
+}
+
+.js--wp-16 .animated {
+	opacity: 1;
+}
+
+.js--wp-17 {
+	opacity: 0;
+	animation-delay: 1.2s;	
+}
+
+.js--wp-17 .animated {
+	opacity: 1;
+}
+
+
+/* ====================================/
+/========== MEDIA QUERIES =========== */
+
+@media screen and ( max-width : 991px ) {
+	#instructor .container {
+		background: rgba(255,255,255,0.8);
+		padding: 20px;
+	}
+}
+
+@media screen and ( max-width : 768px ) {
+	.logo {
+		width: 50%;
+	}
+	
+	#optin p {
+		margin: 0 0 10px;
+	}
+	
+	#featurette iframe {
+		height: 240px;
+	}
+	
+	.resource {
+		width: 48%;
+		margin-right: 2%;
+		min-height: 600px;
+	}
+	
+}
+
+@media screen and ( max-width : 568px ) {
+	#instructor .num {
+		height: 100px;
+		width: 100px;
+		font-size: 22px;
+	}
+	
+	.resource {
+		width: 100%;
+		margin-right: 0;
+		min-height: 0;
+	}
+}
+

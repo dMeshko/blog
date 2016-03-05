@@ -40,5 +40,28 @@ angular.module("BlogModule").factory("BlogService", ["$http", "apiURL", function
         return $http.get(apiURL + "/post");
     };
 
+    factory.getAllPostsByCategory = function (categoryId){
+        return $http.get(apiURL + "/post/byCategory/" + categoryId);
+    };
+
+    factory.getAllPostsByTag = function (tagId){
+        return $http.get(apiURL + "/post/byTag/" + tagId);
+    };
+
+    factory.search = function (word){
+        return $http.get(apiURL + "/post/search?word=" + word);
+    };
+
+    factory.addPost = function (title, content, imageURL, authorId){
+        var data = $.param({
+            "title": title,
+            "content": content,
+            "imageURL": imageURL,
+            "userId": authorId
+        });
+        var config = {headers: {'Content-Type': 'application/x-www-form-urlencoded'}};
+        return $http.post(apiURL + "/post/add", data, config);
+    };
+
     return factory;
 }]);

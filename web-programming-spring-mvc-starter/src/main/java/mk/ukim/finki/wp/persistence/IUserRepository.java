@@ -9,4 +9,5 @@ public interface IUserRepository {
     public User getUser(Long id);
     public void saveOrUpdate(User user);
     public void delete(Long id);
+    public User getUserByUsername(String username);
 }

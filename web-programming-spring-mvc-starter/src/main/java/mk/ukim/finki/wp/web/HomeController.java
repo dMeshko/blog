@@ -33,7 +33,7 @@ public class HomeController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView index(){
-        ModelAndView modelAndView = new ModelAndView("blog");
+        ModelAndView modelAndView = new ModelAndView("user");
 
         long blogId = 1;
         modelAndView.addObject("blogTitle", blogService.getBlog(blogId).getName());
@@ -68,5 +68,10 @@ public class HomeController {
         modelAndView.addObject("done", "done");
 
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public void signUp(@RequestParam String name, @RequestParam  String surname, @RequestParam  String email, @RequestParam  String username, @RequestParam  String password, @RequestParam MultipartFile file){
+        userService.addUser(name, surname, email, username, password, file);
     }
 }

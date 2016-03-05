@@ -24,4 +24,7 @@ public interface IBlogService {
     public Comment getCommentById(Long commentId);
     public List<Post> getAllPosts();
     public List<Post> getPostsByCategory(Long categoryId);
+    public List<Post> getPostsByTag(Long tagId);
+    public List<Post> search(String word);
+    public void addPost(String title, String content, String imageURL, User user);
 }

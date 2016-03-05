@@ -40,10 +40,12 @@
 						</div><!--navbar-header-->
 							<div class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href="home.html">Home</a></li>
+									<li><a href="index.html">Home</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="about.html">About Us</a></li>
-									<li><a href="signup.html">Sign In</a></li>
+									<li data-ng-hide = "{{showPostButton}}"><a href="signup.html">Sign In</a></li>
+									<li data-ng-show = "{{showPostButton}}"><a href="new_post.html"><i class = "glyphicon glyphicon-plus"></i> New Post</a></li>
+									<li data-ng-show = "{{showPostButton}}" data-ng-click="logout();"><a href=""><i class = "glyphicon glyphicon-remove"></i> Logout</a></li>
 								</ul>
 							</div><!--navbar-collapse-->
 						</div><!--container--> 
@@ -74,10 +76,10 @@
 						</header>
 						
 						<div class="post-image">
-							<img src="assets/img/hero-bg.jpg" alt="hero image">
+							<img data-ng-src = "{{post.imageURL[0]}}" alt="hero image">
 						</div><!-- post-image -->
 						<div class="post-body">
-							{{post.content}}
+							<p ng-bind-html = "post.content | to_trusted"></p>
 						</div><!-- post-body-->
 					</article><!-- post -->
 					
@@ -130,9 +132,9 @@
 				<!------------------ SIDEBAR------------------>
 				<aside class="col-sm-4" data-ng-controller="SidebarController">
 					<div class="widget">
-						<form role="form" class="search-form">
+						<form role="form" class="search-form" method="get" action="search.html">
 							<label for="sidebar-search" class="sr-only">Search the blog</label>
-							<input type="text" id="sidebar-search" placeholder="Search the blog...">
+							<input type="text" name = "word" id="sidebar-search" placeholder="Search the blog...">
 						</form>
 					</div><!-- widget -->
                     <div class="widget">
@@ -168,7 +170,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
-						<h2>Are you ready to take your coding skills to the <strong>next level</strong>?</h2>
+						<h2>Would you like to contribute with an <strong>experience</strong>?</h2>
 						<p><a href='signup.html' class="btn btn-lg btn-block btn-success">Yes, sign me up! </a></p>
 					</div><!-- col -->
 				</div><!-- row -->
